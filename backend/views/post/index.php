@@ -26,25 +26,36 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             [
             	'attribute'=>'tags',
-            	'label'=>'tags',
+            	'label'=>'tAGS',
             	'format'=>'text',
             	'value'=>function($row)
             	{
             		return mb_substr($row->tags,0,50);
             	}
-            ]
-            ,
-            ['attribute'=>'title',
-            'options'=>['class'=>'bg-danger'],
-        ],
-            'content:ntext',
+            ],
+
+            [
+                'attribute'=>'title',
+                'options'=>['class'=>'bg-danger'],
+            ],
+
+            [
+                'attribute'=>'content',
+                'value'=>function($row)
+                {
+                    return mb_substr($row->content, 0,50);
+                }
+            ],
+            // 'content:ntext',
             // 'tags:ntext',
             'status',
             //'create_time:datetime',
             //'update_time:datetime',
             //'author_id',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [   
+                'class' => 'yii\grid\ActionColumn'
+            ],
         ],
     ]); ?>
 </div>

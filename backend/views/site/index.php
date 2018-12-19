@@ -32,7 +32,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-comments fa-5x"></i>
+                                        <i class="fa fa-comments fa-4x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">26</div>
@@ -49,6 +49,7 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-green">
                             <div class="panel-heading">
@@ -71,6 +72,7 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-yellow">
                             <div class="panel-heading">
@@ -93,6 +95,7 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-red">
                             <div class="panel-heading">
@@ -125,7 +128,7 @@
                                 <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
                             </div>
                             <div class="panel-body">
-                                <div id="morris-area-chart"></div>
+                                <div id="morris-area-chart">sdvs</div>
                             </div>
                         </div>
                     </div>
@@ -146,6 +149,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -192,6 +196,7 @@
                             </div>
                         </div>
                     </div>
+                    <!--  -->
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -269,5 +274,5 @@
                 </div>
                 <!-- /.row -->
 
-            </div>
-            <!-- /.container-fluid -->
+</div>
+<!-- /.container-fluid -->

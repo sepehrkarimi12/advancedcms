@@ -9,5 +9,18 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        // 'urlManager'=>[
+        //     'enablePrettyUrl'=>true,
+        //     'showScriptName'=>false,
+        //     'rules'=>[
+        //         ''=>'site/index',
+        //         '<action>'=>'site/<action>'
+        //         [
+        //             'pattern'=>'id',
+        //             'route'=>'post/show',
+        //             'suffix'=>'.html'
+        //         ]
+        //     ]
+        // ]
     ],
 ];

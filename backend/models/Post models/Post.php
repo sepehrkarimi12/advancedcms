@@ -18,7 +18,6 @@ use Yii;
  *
  * @property TblComment[] $tblComments
  * @property TblUser $author
- * @property TblPostCategory[] $tblPostCategories
  */
 class Post extends \yii\db\ActiveRecord
 {
@@ -74,15 +73,7 @@ class Post extends \yii\db\ActiveRecord
      */
     public function getAuthor()
     {
-        return $this->hasOne(User::className(), ['id' => 'author_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getTblPostCategories()
-    {
-        return $this->hasMany(PostCategory::className(), ['post_id' => 'id']);
+        return $this->hasOne(TblUser::className(), ['id' => 'author_id']);
     }
 
     /**
@@ -93,55 +84,4 @@ class Post extends \yii\db\ActiveRecord
     {
         return new PostQuery(get_called_class());
     }
-
-    public function getAllCategories()
-    {
-        $all= \backend\models\Category::find()->all();
-        return \yii\helpers\ArrayHelper::map($all,'id','title');
-    }
-
-    public function getSelectedCategory()
-    {
-        $selected=[];
-        if($this->isNewRecord != 1)
-        {
-            // $selected=\yii\helpers\ArrayHelper::getColumn(
-            //     \backend\models\PostCategory::findAll(['post_id'=>$this->id]),
-            //     function($element){
-            //         return $element['category_id'];
-            //     }
-            // );
-            $arr=\backend\models\PostCategory::findAll(['post_id'=>$this->id]);
-            $selected=\yii\helpers\ArrayHelper::getColumn($arr,'category_id');
-        }
-
-        return $selected;
-    }
-
-    public function afterSave($insert,$changedAttributes)
-    {
-        $selected=Yii::$app->request->post('PostCategory');
-        // print_r($selected);
-        // exit();
-        \backend\models\PostCategory::deleteAll(['post_id'=>$this->id]);
-        $insert_data=[];
-        if($selected!=null){
-            foreach ($selected as $v) {
-                $insert_data[]=[$this->id,$v];
-            }
-        }
-
-        if($insert_data!=null){
-            Yii::$app->db->createCommand()->batchInsert(
-                'tbl_post_category',
-                ['post_id','category_id'],
-                $insert_data
-            )->execute();
-        }
-
-
-    }
-
 }
-
-//

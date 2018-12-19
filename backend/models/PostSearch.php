@@ -9,7 +9,7 @@ class PostSearch extends Post
     public function rules()
     {
         return [
-            [['tags','status'],'safe'],
+            [['tags','status','content'],'safe'],
         ];
     }    
 
@@ -25,13 +25,14 @@ class PostSearch extends Post
             'query'=>$query
         ]);
 
-        if( !($this->load($params) && $this->validate()) )
+        if( !( $this->load($params) && $this->validate() ) )
         {
             return $dataPrivider;
         }
 
         $query->andFilterWhere(['like','tags',$this->tags])
-              ->andFilterWhere(['like','status',$this->status]);
+              ->andFilterWhere(['like','status',$this->status])
+              ->andFilterWhere(['like','content',$this->content]);
 
 
         return $dataPrivider;
